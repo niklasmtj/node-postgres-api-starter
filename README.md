@@ -10,3 +10,15 @@ Functions include:
 * delete a user from DB
 
 For a quick start the database credentials have to be inserted in the `queries.js` file. Please use a `.env` file as soon as possible for better security.
+
+## Create a database
+
+Set up a database like this to getting things started:
+
+```sql
+CREATE TABLE users (
+  ID SERIAL PRIMARY KEY,
+  name VARCHAR(30),
+  email VARCHAR(30)
+);
+```
