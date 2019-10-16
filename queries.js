@@ -1,9 +1,12 @@
+const dotenv = require('dotenv').config();
+const { POSTGRES_USER, POSTGRES_HOST, POSTGRES_DB, POSTGRES_PASSWORD } = process.env;
+
 const Pool = require('pg').Pool
 const pool = new Pool({
-  user: 'YOURUSERHERE',
-  host: 'localhost',
-  database: 'DATABASENAME',
-  password: 'YOURSECRETPASSWORD',
+  user: POSTGRES_USER,
+  host: POSTGRES_HOST,
+  database: POSTGRES_DB,
+  password: POSTGRES_PASSWORD,
   port: 5432,
 })
 
@@ -20,7 +23,7 @@ const getUsersById = (req, res) => {
   const id = parseInt(req.params.id)
 
   pool.query('SELECT * FROM users WHERE id = $1', [id], (error, results) => {
-    if(error) {
+    if (error) {
       throw error
     }
     res.status(200).json(results.rows)
@@ -31,7 +34,7 @@ const createUser = (req, res) => {
   const { name, email } = req.body
 
   pool.query('INSERT INTO users (name, email) VALUES ($1, $2)', [name, email], (error, results) => {
-    if(error) {
+    if (error) {
       throw error
     }
     res.status(201).send(`User added with ID: ${results.insertId}`)
@@ -46,7 +49,7 @@ const updateUser = (req, res) => {
     'UPDATE users SET name = $1, email = $2 WHERE id = $3',
     [name, email, id],
     (error, results) => {
-      if(error) {
+      if (error) {
         throw error
       }
       res.status(200).send(`User modified with ID: ${id}`)
