@@ -24,7 +24,7 @@ CREATE TABLE users (
 ```
 ## Run with Docker
 
-With `docker-compose` just `build` and run. A database seeded with some users will be created and the API will be exposed on the host at <http://localhost:3000>. Of course the environment variables set ine `docker-compose.yml` file must match between the database and the API.
+With `docker-compose` just `build` and run. A database seeded with some users will be created and the API will be exposed on the host at <http://localhost:3000>. Of course the environment variables set in `docker-compose.yml` file must match between the database and the API.
 
 * `docker-compose build`
 * `docker-compose up -d`
