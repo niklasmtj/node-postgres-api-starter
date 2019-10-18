@@ -1,0 +1,18 @@
+version: '3.0'
+
+services:
+  db:
+    build: ./db
+    environment:
+      POSTGRES_USER: YOURUSERHERE
+      POSTGRES_PASSWORD: YOURSECRETPASSWORD
+      POSTGRES_DB: DATABASENAME
+  api:
+    build: .
+    ports:
+      - 3000:3000
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_USER: YOURUSERHERE
+      POSTGRES_PASSWORD: YOURSECRETPASSWORD
+      POSTGRES_DB: DATABASENAME
