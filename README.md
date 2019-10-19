@@ -1,6 +1,6 @@
 # node-postgres-api-starter
 
-This is a quick starter for a nodeJS API with Express as a server framework and PostgreSQL as a database.
+This is a quick starter for a NodeJS API with Express as a server framework and PostgreSQL as a database.
 It works with a users table to create users by name and email address.  
 Functions include:
 * list all users
@@ -24,7 +24,21 @@ CREATE TABLE users (
 ```
 ## Run with Docker
 
-With `docker-compose` just `build` and run. A database seeded with some users will be created and the API will be exposed on the host at <http://localhost:3000>. Of course the environment variables set in `docker-compose.yml` file must match between the database and the API.
+The easiest and quickest way to start with this API starter is using `docker-compose` which will set up two containers. One for the API and one for Postgres. 
 
-* `docker-compose build`
-* `docker-compose up -d`
+Start with cloning the repository
+
+```
+ git clone https://github.com/niklasmtj/node-postgres-api-starter.git
+```
+
+Then change the directory to the newly created API directory and change the environment variables to your liking in `docker-compose.yml`. Of course the environment variables set in `docker-compose.yml` file must match between the database and the API. After that you can start your Docker containers. The flag `-d` will start the containers in detached mode. Remove it if you don't want this.
+
+```
+cd node-postgres-api-starter
+nano docker-compose.yml
+docker-compose build
+docker-compose up -d
+```
+
+A database seeded with some example users will be created and the API will be exposed on the host at <http://localhost:3000>. 
