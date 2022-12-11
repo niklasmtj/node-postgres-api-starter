@@ -19,7 +19,7 @@
   "homepage": "https://github.com/niklasmtj/node-postgres-api-starter#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "pg": "^7.11.0"
   }
 }
